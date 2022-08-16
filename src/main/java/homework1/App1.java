@@ -6,20 +6,18 @@ import java.util.Scanner;
 public class App1 {
 
     public static void main(String[] args) {
-
-        int target = (int) (Math.random() * 100);
-        int[] guessedNumbers = new int[100];
         Scanner in = new Scanner(System.in);
-        int guess, index = 0;
+        int[] guessedNumbers = new int[100];
+        int target = (int) (Math.random() * 100), guess, index = 0;
 
         System.out.print("Please enter your name: ");
         String name = in.nextLine();
+
         System.out.println("Let the game begin!");
         while (true) {
+            System.out.print("Please enter your guessed number: ");
             try {
-                System.out.print("Please enter your guessed number: ");
                 guess = in.nextInt();
-
                 guessedNumbers[index++] = guess;
 
                 if (guess > target) {
@@ -31,18 +29,21 @@ public class App1 {
                     System.out.print("Your numbers: ");
 
                     sortArray(guessedNumbers);
-
-                    for (int i = 0; i < index; i++) {
-                        System.out.print(guessedNumbers[i] + ", ");
-                    }
-                    System.out.println();
+                    printArray(guessedNumbers, index);
                     break;
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Only digits should be entered!");
-                break;
+                in.next();
             }
         }
+    }
+
+    private static void printArray(int[] guessedNumbers, int index) {
+        for (int i = 0; i < index - 1; i++) {
+            System.out.print(guessedNumbers[i] + ", ");
+        }
+        System.out.println(guessedNumbers[index - 1]);
     }
 
     public static void sortArray(int[] array) {

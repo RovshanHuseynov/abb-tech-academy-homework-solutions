@@ -19,6 +19,13 @@ public class App2 {
             System.out.print("Enter a shooting bar: ");
             int column = validateAndGetNumber(in);
 
+            if(board[row][column] == 'x'){
+                System.out.println("You have won!");
+                break;
+            } else {
+                board[row][column] = '*';
+            }
+
             printBoard(board);
         }
     }
@@ -46,7 +53,6 @@ public class App2 {
                 board[i][j] = '-';
             }
         }
-        System.out.println(target);
 
         int cnt = 0;
         for(int i=1; i<6; i++){

@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Pet {
     public String species;
     public String nickname;
-    public String age;
+    public int age;
     public int trickLevel; // number from 1 to 100
     public String[] habits;
 
@@ -17,7 +17,7 @@ public class Pet {
         this.nickname = nickname;
     }
 
-    public Pet(String species, String nickname, String age, int trickLevel, String[] habits) {
+    public Pet(String species, String nickname, int age, int trickLevel, String[] habits) {
         this.species = species;
         this.nickname = nickname;
         this.age = age;

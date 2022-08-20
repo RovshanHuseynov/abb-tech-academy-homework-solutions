@@ -1,6 +1,8 @@
 package homework4;
 
 
+import java.util.Arrays;
+
 public class Human {
     public String name;
     public String surname;
@@ -12,6 +14,10 @@ public class Human {
     public String[][] schedule;    // day of the week, type of the activity
 
     public Human(){
+        this.pet = new Pet();
+        this.mother = new Human();
+        this.father = new Human();
+        this.schedule = new String[7][2];
     }
 
     public Human(String name, String surname, int year){
@@ -53,6 +59,9 @@ public class Human {
         }
     }
 
+    // TODO check pet = null
+    // TODO check mother = null
+    // TODO check father = null
     @Override
     public String toString() {
         return "Human{" +
@@ -60,9 +69,17 @@ public class Human {
                 ", surname='" + surname + '\'' +
                 ", year=" + year +
                 ", iq=" + iq +
-                ", mother=" + mother.name + " " + mother.surname +
-                ", father=" + father.name + " " + father.surname +
                 ", pet=" + pet +
+                ", mother=" + getHumanNameAndSurname(mother) +
+                ", father=" + getHumanNameAndSurname(father) +
+                ", schedule=" + Arrays.toString(schedule) +
                 '}';
+    }
+
+    private String getHumanNameAndSurname(Human human){
+        if(human == null){
+            return null;
+        }
+        return human.name + " " + human.surname;
     }
 }

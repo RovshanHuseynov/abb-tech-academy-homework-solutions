@@ -5,7 +5,7 @@ public class Human {
     public String name;
     public String surname;
     public int year;
-    public int iq;
+    public int iq; // number from 1 to 100
     public Pet pet;
     public Human mother;
     public Human father;
@@ -44,7 +44,6 @@ public class Human {
     }
 
     public void describePet(){
-        // I have a [species], he is [age] years old, he is [very sly]>50/[almost not sly]<50
         System.out.print("I have a " + pet.species + ", he is " + pet.age + " years old, he is ");
 
         if(pet.trickLevel > 50){

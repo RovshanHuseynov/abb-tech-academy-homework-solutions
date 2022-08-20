@@ -6,7 +6,7 @@ public class Pet {
     public String species;
     public String nickname;
     public String age;
-    public int trickLevel;
+    public int trickLevel; // number from 1 to 100
     public String[] habits;
 
     public Pet(){
@@ -40,7 +40,7 @@ public class Pet {
     @Override
     public String toString() {
         return species + "{" +
-                ", nickname='" + nickname + '\'' +
+                "nickname='" + nickname + '\'' +
                 ", age='" + age + '\'' +
                 ", trickLevel=" + trickLevel +
                 ", habits=" + Arrays.toString(habits) +

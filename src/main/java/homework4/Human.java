@@ -14,10 +14,6 @@ public class Human {
     public String[][] schedule;    // day of the week, type of the activity
 
     public Human(){
-        this.pet = new Pet();
-        this.mother = new Human();
-        this.father = new Human();
-        this.schedule = new String[7][2];
     }
 
     public Human(String name, String surname, int year){

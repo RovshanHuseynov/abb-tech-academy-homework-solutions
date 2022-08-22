@@ -59,9 +59,6 @@ public class Human {
         }
     }
 
-    // TODO check pet = null
-    // TODO check mother = null
-    // TODO check father = null
     @Override
     public String toString() {
         return "Human{" +
@@ -72,7 +69,7 @@ public class Human {
                 ", pet=" + pet +
                 ", mother=" + getHumanNameAndSurname(mother) +
                 ", father=" + getHumanNameAndSurname(father) +
-                ", schedule=" + Arrays.toString(schedule) +
+                ", schedule=" + Arrays.deepToString(schedule) +
                 '}';
     }
 

@@ -9,10 +9,12 @@ public class App4 {
         System.out.println(pet1);
         System.out.println(pet2);
         System.out.println(pet3);
+        System.out.println();
 
-        pet3.eat();
-        pet3.respond();
+        pet1.eat();
+        pet2.respond();
         pet3.foul();
+        System.out.println();
 
         Human mother1 = new Human("Anna", "Valiyeva", 1975);
         Human father1 = new Human("John", "Robertson", 1970);
@@ -24,6 +26,7 @@ public class App4 {
         System.out.println(father1);
         System.out.println(child1);
         System.out.println(child2);
+        System.out.println();
 
         child2.greetPet();
         child2.describePet();

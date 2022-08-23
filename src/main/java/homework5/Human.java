@@ -1,6 +1,7 @@
 package homework5;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Human {
     private String name;
@@ -41,13 +42,13 @@ public class Human {
     }
 
     public void greetPet(){
-        System.out.println("Hello, " + pet.nickname);
+        System.out.println("Hello, " + pet.getNickname());
     }
 
     public void describePet(){
-        System.out.print("I have a " + pet.species + ", he is " + pet.age + " years old, he is ");
+        System.out.print("I have a " + pet.getSpecies() + ", he is " + pet.getAge() + " years old, he is ");
 
-        if(pet.trickLevel > 50){
+        if(pet.getTrickLevel() > 50){
             System.out.println("very sly");
         } else {
             System.out.println("almost not sly");
@@ -66,6 +67,21 @@ public class Human {
                 ", father=" + getHumanNameAndSurname(father) +
                 ", schedule=" + Arrays.deepToString(schedule) +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Human human = (Human) o;
+        return year == human.year && iq == human.iq && Objects.equals(name, human.name) && Objects.equals(surname, human.surname) && Objects.equals(pet, human.pet) && Objects.equals(mother, human.mother) && Objects.equals(father, human.father) && Arrays.equals(schedule, human.schedule);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(name, surname, year, iq, pet, mother, father);
+        result = 31 * result + Arrays.hashCode(schedule);
+        return result;
     }
 
     private String getHumanNameAndSurname(Human human){

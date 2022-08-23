@@ -14,7 +14,7 @@ public class App5 {
         System.out.println(child2.hashCode());
         System.out.println(child1.equals(child2));
 
-        Family family1 = new Family(father1, mother1, new Human[]{child1, child2}, pet1);
+        Family family1 = new Family(father1, mother1);
         System.out.println(family1);
     }
 }

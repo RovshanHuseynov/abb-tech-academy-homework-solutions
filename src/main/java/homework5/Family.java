@@ -8,11 +8,10 @@ public class Family {
     private Human[] child;
     private Pet pet;
 
-    public Family(Human father, Human mother, Human[] child, Pet pet) {
+    public Family(Human father, Human mother) {
         this.father = father;
         this.mother = mother;
-        this.child = child;
-        this.pet = pet;
+        this.child = new Human[10];
     }
 
     public String deleteChild(Human child){

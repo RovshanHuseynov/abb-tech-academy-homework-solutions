@@ -4,6 +4,14 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class Family {
+    static {
+        System.out.println("Family class is being loaded");
+    }
+
+    {
+        System.out.println("New object of Family class is being loaded");
+    }
+
     private Human father;
     private Human mother;
     private Human[] child;
@@ -30,7 +38,7 @@ public class Family {
         int len = this.child.length;
 
         for(int i=0; i<len; i++){
-            if(Objects.equals(this.child[i], child)){
+            if(this.child[i].hashCode() == child.hashCode() && this.child[i].equals(child)){
                 this.child[i] = null;
                 refillChildArray();
                 return true;

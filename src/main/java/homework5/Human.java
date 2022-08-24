@@ -4,6 +4,13 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class Human {
+    static {
+        System.out.println("Human class is being loaded");
+    }
+
+    {
+        System.out.println("New object of Human class is being loaded");
+    }
     private String name;
     private String surname;
     private int year;

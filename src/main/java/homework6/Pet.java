@@ -47,7 +47,7 @@ public class Pet {
 
     @Override
     public String toString() {
-        return species + "{" +
+        return species.name() + "{" +
                 "nickname='" + nickname + '\'' +
                 ", age='" + age + '\'' +
                 ", trickLevel=" + trickLevel +
@@ -72,8 +72,14 @@ public class Pet {
 
     @Override
     protected void finalize() throws Throwable {
-        System.out.println("An object of the Pet class is deleted");
-        super.finalize();
+        try {
+            System.out.println("Inside finalize method of Pet class");
+        } catch (Throwable e){
+            throw e;
+        } finally {
+            System.out.println("Calling finalize method of the Object class from Pet class");
+            super.finalize();
+        }
     }
 
     public Species getSpecies() {

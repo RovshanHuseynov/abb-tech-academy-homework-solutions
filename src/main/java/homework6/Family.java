@@ -102,8 +102,14 @@ public class Family {
 
     @Override
     protected void finalize() throws Throwable {
-        System.out.println("An object of the Family class is deleted");
-        super.finalize();
+        try {
+            System.out.println("Inside finalize method of Family class");
+        } catch (Throwable e){
+            throw e;
+        } finally {
+            System.out.println("Calling finalize method of the Object class from Family class");
+            super.finalize();
+        }
     }
 
     public Human getFather() {

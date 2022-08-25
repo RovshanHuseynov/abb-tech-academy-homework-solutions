@@ -62,8 +62,14 @@ public class Human {
 
     @Override
     protected void finalize() throws Throwable {
-        System.out.println("An object of the Human class is deleted");
-        super.finalize();
+        try {
+            System.out.println("Inside finalize method of Human class");
+        } catch (Throwable e){
+            throw e;
+        } finally {
+            System.out.println("Calling finalize method of the Object class from Human class");
+            super.finalize();
+        }
     }
 
     public String getName() {

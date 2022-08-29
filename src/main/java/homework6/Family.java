@@ -23,15 +23,17 @@ public class Family {
         this.children = new Human[10];
     }
 
-    public void addChild(Human child){
+    public boolean addChild(Human child){
         reFillChildrenArray();
         int len = this.children.length;
 
         for(int i=0; i<len; i++){
             if(this.children[i] == null){
                 this.children[i] = child;
+                return true;
             }
         }
+        return false;
     }
 
     public boolean deleteChild(Human child){
@@ -59,11 +61,6 @@ public class Family {
         this.children[index] = null;
         reFillChildrenArray();
         return true;
-
-        /*check that the child is actually being removed from the children
-         array and the method returns the correct value;
-        check that the children array remains unchanged (if you
-        pass an index outside the index range) and the method returns the correct value;*/
     }
 
     public int countFamily(){

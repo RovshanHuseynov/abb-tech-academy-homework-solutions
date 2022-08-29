@@ -14,5 +14,11 @@ public class App6 {
                 } );
 
         System.out.println(human1);
+
+        Pet pet1 = new Pet(Species.DOG, "Rick", 1, 40,
+                new String[]{"jump", "lick", "smell", "play", "bark"});
+
+        System.out.println(pet1);
+        System.out.println(pet1.getSpecies());
     }
 }

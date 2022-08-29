@@ -14,46 +14,64 @@ public class Family {
 
     private Human father;
     private Human mother;
-    private Human[] child;
+    private Human[] children;
     private Pet pet;
 
     public Family(Human father, Human mother) {
         this.father = father;
         this.mother = mother;
-        this.child = new Human[10];
+        this.children = new Human[10];
     }
 
     public void addChild(Human child){
-        int len = this.child.length;
+        reFillChildrenArray();
+        int len = this.children.length;
 
         for(int i=0; i<len; i++){
-            if(this.child[i] == null){
-                this.child[i] = child;
+            if(this.children[i] == null){
+                this.children[i] = child;
             }
         }
-        refillChildArray();
     }
 
     public boolean deleteChild(Human child){
-        int len = this.child.length;
+        int len = this.children.length;
 
         for(int i=0; i<len; i++){
-            if(this.child[i].hashCode() == child.hashCode() && this.child[i].equals(child)){
-                this.child[i] = null;
-                refillChildArray();
+            if(this.children[i].hashCode() == child.hashCode() && this.children[i].equals(child)){
+                this.children[i] = null;
+                reFillChildrenArray();
                 return true;
             }
         }
-        refillChildArray();
         return false;
+    }
+
+    public boolean deleteChild(int index){
+        if(index >= this.children.length){
+            return false;
+        }
+
+        if(this.children[index] == null){
+            return false;
+        }
+
+        this.children[index] = null;
+        reFillChildrenArray();
+        return true;
+
+        /*check that the child is actually being removed from the children
+         array and the method returns the correct value;
+        check that the children array remains unchanged (if you
+        pass an index outside the index range) and the method returns the correct value;*/
     }
 
     public int countFamily(){
         int cntFamilyMembers = 2;
-        int lenChild = this.child.length;
+        int lenChild = this.children.length;
 
         for(int i=0; i<lenChild; i++){
-            if(this.child[i] != null) cntFamilyMembers++;
+            if(this.children[i] != null) cntFamilyMembers++;
         }
 
         if(this.pet != null) cntFamilyMembers++;
@@ -61,18 +79,13 @@ public class Family {
         return cntFamilyMembers;
     }
 
-    public void refillChildArray(){
-        int lenCurrentChildArray = this.child.length;
-        Human[] childNew = new Human[lenCurrentChildArray];
-        int indexChildNew = 0;
-
-        for(int i=0; i<lenCurrentChildArray; i++){
-            if(this.child[i] != null){
-                childNew[indexChildNew++] = this.child[i];
+    public void reFillChildrenArray(){
+        for(int i=1; i<this.children.length; i++){
+            if(this.children[i-1] == null){
+                this.children[i-1] = this.children[i];
+                this.children[i] = null;
             }
         }
-
-        this.child = childNew;
     }
 
     @Override
@@ -80,7 +93,7 @@ public class Family {
         return "Family {" +
                 "father=" + father +
                 ", mother=" + mother +
-                ", child=" + Arrays.toString(child) +
+                ", child=" + Arrays.toString(children) +
                 ", pet=" + pet +
                 '}';
     }
@@ -90,13 +103,13 @@ public class Family {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Family family = (Family) o;
-        return Objects.equals(father, family.father) && Objects.equals(mother, family.mother) && Arrays.equals(child, family.child) && Objects.equals(pet, family.pet);
+        return Objects.equals(father, family.father) && Objects.equals(mother, family.mother) && Arrays.equals(children, family.children) && Objects.equals(pet, family.pet);
     }
 
     @Override
     public int hashCode() {
         int result = Objects.hash(father, mother, pet);
-        result = 31 * result + Arrays.hashCode(child);
+        result = 31 * result + Arrays.hashCode(children);
         return result;
     }
 
@@ -120,8 +133,8 @@ public class Family {
         return mother;
     }
 
-    public Human[] getChild() {
-        return child;
+    public Human[] getChildren() {
+        return children;
     }
 
     public Pet getPet() {

@@ -52,11 +52,11 @@ public class Human {
         if(!(o instanceof Human)) return false;
 
         Human that = (Human) o;
-        return Objects.equals(this.year, that.year) &&
-                Objects.equals(this.iq, that.iq) &&
+        return this.year == that.year &&
+                this.iq == that.iq &&
                  Objects.equals(this.name, that.name) &&
                   Objects.equals(this.surname, that.surname) &&
-                Arrays.deepEquals(this.schedule, that.schedule);
+                   Arrays.deepEquals(this.schedule, that.schedule);
     }
 
     @Override

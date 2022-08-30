@@ -62,10 +62,10 @@ public class Pet {
         if(!(o instanceof Pet)) return false;
 
         Pet that = (Pet) o;
-        return Objects.equals(this.species, that.species) &&
-                Objects.equals(this.nickname, that.nickname) &&
-                 Objects.equals(this.age, that.age) &&
-                  Objects.equals(this.trickLevel, that.trickLevel) &&
+        return this.age == that.age &&
+                this.trickLevel == that.trickLevel &&
+                 Objects.equals(this.species, that.species) &&
+                  Objects.equals(this.nickname, that.nickname) &&
                    Arrays.equals(this.habits, that.habits);
     }
 

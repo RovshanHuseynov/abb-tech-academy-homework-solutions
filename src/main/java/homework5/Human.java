@@ -47,16 +47,26 @@ public class Human {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Human human = (Human) o;
-        return year == human.year && iq == human.iq && Objects.equals(name, human.name) && Objects.equals(surname, human.surname) && Arrays.deepEquals(schedule, human.schedule);
+        if(this.hashCode() == o.hashCode()) return true;
+        if(this == o) return true;
+        if(!(o instanceof Human)) return false;
+
+        Human that = (Human) o;
+        return Objects.equals(this.year, that.year) &&
+                Objects.equals(this.iq, that.iq) &&
+                 Objects.equals(this.name, that.name) &&
+                  Objects.equals(this.surname, that.surname) &&
+                Arrays.deepEquals(this.schedule, that.schedule);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(name, surname, year, iq);
-        result = 31 * result + Arrays.deepHashCode(schedule);
+        int result = 17;
+        result = result * 31 + name.hashCode();
+        result = result * 31 + surname.hashCode();
+        result = result * 31 + year;
+        result = result * 31 + iq;
+        result = result * 31 + Arrays.deepHashCode(schedule);
         return result;
     }
 

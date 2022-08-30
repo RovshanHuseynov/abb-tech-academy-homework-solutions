@@ -87,16 +87,24 @@ public class Family {
 
     @Override
     public boolean equals(Object o) {
+        if(this.hashCode() != o.hashCode()) return false;
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Family family = (Family) o;
-        return Objects.equals(father, family.father) && Objects.equals(mother, family.mother) && Arrays.equals(child, family.child) && Objects.equals(pet, family.pet);
+        if(!(o instanceof Family)) return false;
+
+        Family that = (Family) o;
+        return Objects.equals(this.father, that.father) &&
+                Objects.equals(this.mother, that.mother) &&
+                 Objects.equals(this.pet, that.pet) &&
+                  Arrays.equals(this.child, that.child);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(father, mother, pet);
-        result = 31 * result + Arrays.hashCode(child);
+        int result = 17;
+        result = result * 31 + father.hashCode();
+        result = result * 31 + mother.hashCode();
+        result = result * 31 + Arrays.hashCode(child);
+        result = result * 31 + pet.hashCode();
         return result;
     }
 
@@ -108,8 +116,21 @@ public class Family {
         return mother;
     }
 
+    public void setChild(Human child){
+        for(int i=0; i<this.child.length; i++){
+            if(this.child[i] == null){
+                this.child[i] = child;
+                break;
+            }
+        }
+    }
+
     public Human[] getChild() {
         return child;
+    }
+
+    public void setPet(Pet pet){
+        this.pet = pet;
     }
 
     public Pet getPet() {

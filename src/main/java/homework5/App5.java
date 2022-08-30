@@ -10,7 +10,7 @@ public class App5 {
                 new String[][]{ {"Monday", "Go to work"}, {"Tuesday", "Workout"}});
         Pet pet1  = new Pet("dog", "luna");
 
-        System.out.println(child3);
+        System.out.println("Child3: " + child3);
         System.out.println(mother1.hashCode());
         System.out.println(father1.hashCode());
         System.out.println(child1.hashCode());
@@ -18,6 +18,12 @@ public class App5 {
         System.out.println(child1.equals(child2));
 
         Family family1 = new Family(father1, mother1);
+        family1.setPet(pet1);
+        family1.setChild(child1);
+        family1.setChild(child2);
         System.out.println(family1);
+
+        Family family2 = family1;
+        System.out.println(family1.equals(family2));
     }
 }

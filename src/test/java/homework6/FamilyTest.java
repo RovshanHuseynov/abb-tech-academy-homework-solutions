@@ -1,8 +1,8 @@
 package homework6;
 
-import org.junit.Assert;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class FamilyTest {
     Family family1;
@@ -13,12 +13,22 @@ public class FamilyTest {
     }
 
     @Test
+    @DisplayName("First Test is being tested")
     public void firstTest(){
-        Assert.assertTrue(true);
+        assertTrue(5>0);
     }
 
-    @Test
+    @RepeatedTest(3)
+    @DisplayName("Second")
     public void secondTest(){
-        Assert.assertTrue("hello", true);
+        assertEquals(20, 5+15,
+                "Expected and Actual are not the same");
+    }
+
+    @Disabled("I disabled it just to learn this annotation")
+    @Test
+    @DisplayName("Third")
+    public void thirdTest(){
+        assertNull(null);
     }
 }

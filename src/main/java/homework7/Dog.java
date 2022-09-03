@@ -1,6 +1,11 @@
 package homework7;
 
 public class Dog extends Pet implements Foulable{
+    public Dog(boolean nothing){
+        // special contructor only for creating UNKNOWN species pet
+        super();
+    }
+
     public Dog() {
         super(Species.DOG);
     }

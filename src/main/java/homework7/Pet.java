@@ -22,7 +22,7 @@ public abstract class Pet {
     }
 
     public Pet(Species species){
-        this.species = Species.UNKNOWN;
+        this.species = species;
     }
 
     public Pet(Species species, String nickname){

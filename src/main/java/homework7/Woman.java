@@ -18,7 +18,7 @@ public final class Woman extends Human{
     }
 
     public void makeup(){
-        System.out.println("I am making up");
+        System.out.println("Let's have some makeup");
     }
 
     @Override

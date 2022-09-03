@@ -18,7 +18,7 @@ public final class Man extends Human{
     }
 
     public void repairCar(){
-        System.out.println("I am repairing my car");
+        System.out.println("Let's repair my car");
     }
 
     @Override

@@ -95,6 +95,12 @@ public class App7 {
         System.out.println("Family3 Count is: " + family3.countFamily());
         System.out.println(family3);
 
+        if(family3Child1 instanceof Man){
+            ((Man) family3Child1).repairCar();
+        } else {
+            ((Woman) family3Child1).makeup();
+        }
+
         family3.getPet().eat();
         family3.getPet().respond();
         cat1.eat();

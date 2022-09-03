@@ -97,16 +97,24 @@ public class Family {
 
     @Override
     public boolean equals(Object o) {
+        if(this.hashCode() != o.hashCode()) return false;
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Family family = (Family) o;
-        return Objects.equals(father, family.father) && Objects.equals(mother, family.mother) && Arrays.equals(children, family.children) && Objects.equals(pet, family.pet);
+        if(!(o instanceof Family)) return false;
+
+        Family that = (Family) o;
+        return Objects.equals(this.father, that.father) &&
+                Objects.equals(this.mother, that.mother) &&
+                 Objects.equals(this.pet, that.pet) &&
+                  Objects.deepEquals(this.children, that.children);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(father, mother, pet);
-        result = 31 * result + Arrays.hashCode(children);
+        int result = 17;
+        result = result * 31 + father.hashCode();
+        result = result * 31 + mother.hashCode();
+        result = result * 31 + Arrays.hashCode(children);
+        result = result * 31 + pet.hashCode();
         return result;
     }
 

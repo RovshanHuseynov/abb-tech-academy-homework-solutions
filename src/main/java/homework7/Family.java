@@ -40,12 +40,13 @@ public class Family {
         int len = this.children.length;
 
         for(int i=0; i<len; i++){
-            if(this.children[i].hashCode() == child.hashCode() && this.children[i].equals(child)){
+            if(this.children[i] != null && this.children[i].hashCode() == child.hashCode() && this.children[i].equals(child)){
                 this.children[i] = null;
                 reFillChildrenArray();
                 return true;
             }
         }
+        reFillChildrenArray();
         return false;
     }
 

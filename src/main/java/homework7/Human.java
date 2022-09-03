@@ -61,7 +61,7 @@ public class Human implements HumanCreator{
                     (family.getFather().iq + family.getMother().iq) / 2);
         } else if(childSex == 1){
             return new Woman(womanNames[random.nextInt(12)],
-                    family.getFather().getSurname(),
+                    family.getMother().getSurname(),
                     1990 + random.nextInt(20),
                     (family.getFather().iq + family.getMother().iq) / 2);
         }
@@ -132,6 +132,10 @@ public class Human implements HumanCreator{
 
     public int getIq() {
         return iq;
+    }
+
+    public void setSchedule(String[][] schedule){
+        this.schedule = schedule;
     }
 
     public String[][] getSchedule() {

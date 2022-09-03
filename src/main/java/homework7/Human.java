@@ -34,6 +34,10 @@ public class Human {
         this.schedule = schedule;
     }
 
+    public void greetPet(){
+        System.out.println("I am greeting my Pet");
+    }
+
     @Override
     public String toString() {
         return "Human{" +

@@ -15,6 +15,9 @@ public enum Species {
     private boolean hasFur;
 
     Species(){
+        this.canFly = false;
+        this.numberOfLegs = 0;
+        this.hasFur = false;
     }
 
     Species(boolean canFly, int numberOfLegs, boolean hasFur) {

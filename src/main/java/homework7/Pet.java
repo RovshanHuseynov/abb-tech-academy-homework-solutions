@@ -56,6 +56,7 @@ public abstract class Pet {
 
     @Override
     public boolean equals(Object o) {
+        if(o == null) return false;
         if(this.hashCode() == o.hashCode()) return true;
         if(this == o) return true;
         if(!(o instanceof Pet)) return false;

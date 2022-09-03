@@ -4,7 +4,11 @@ public enum Species {
     DOG(false, 4, true),
     CAT(false, 4, true),
     PARROT(true, 2, false),
-    CHICKEN(false, 2, false);
+    CHICKEN(false, 2, false),
+    FISH(false, 0, false),
+    DOMESTIC_CAT(false, 4, true),
+    ROBO_CAT(false, 4,true),
+    UNKNOWN(false, 0, false);
 
     private boolean canFly;
     private int numberOfLegs;

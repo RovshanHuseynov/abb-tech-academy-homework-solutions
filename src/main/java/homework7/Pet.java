@@ -3,7 +3,7 @@ package homework7;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class Pet {
+public abstract class Pet {
     static {
         System.out.println("Pet class is being loaded");
     }
@@ -37,13 +37,11 @@ public class Pet {
         System.out.println("I am eating");
     }
 
-    public void respond(){
-        System.out.println("Hello, owner. I am - " + nickname + ". I miss you!");
-    }
+    public abstract void respond();
 
-    public void foul(){
+    /*public void foul(){
         System.out.println("I need to cover it up");
-    }
+    }*/
 
     @Override
     public String toString() {

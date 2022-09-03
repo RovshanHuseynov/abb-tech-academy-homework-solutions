@@ -8,10 +8,11 @@ public class App7 {
         Pet dog2 = new Dog("Zeus", 3, 20, new String[]{"bark", "run fast", "smell well"});
         Pet cat2 = new DomesticCat("Luna", 2, 30, new String[]{"jump", "lick", "sleep"});
 
-
+        System.out.println("\n---------------- Family1 ------------------------");
         Human family1Mother = new Human("Sevinc", "Huseynova", 1967, 80, new String[][]{{DayOfWeek.MONDAY.name(), "go shopping"}});
         Human family1Father = new Human("Mirze", "Huseynov", 1965, 90);
         Family family1 = new Family(family1Father, family1Mother);
+
         Human family1Child1 = new Human().bornChild(family1);
         Human family1Child2 = new Human().bornChild(family1);
         Human family1Child3 = new Human().bornChild(family1);
@@ -43,6 +44,7 @@ public class App7 {
         family1.addChild(family1Child6);
         family1.addChild(family1Child7);
         family1.addChild(family1Child8);
+        family1.setPet(dog1);
         System.out.println(family1.countFamily());
         System.out.println(family1);
         System.out.println("is family1Child4 deleted: " + family1.deleteChild(family1Child4));
@@ -51,20 +53,34 @@ public class App7 {
         System.out.println(family1.countFamily());
         System.out.println(family1);
 
-        /*
-        Human human1 = new Human("Rovshan", "Huseynov", 1994, 90,
-                new String[][] {
-                        {DayOfWeek.MONDAY.name(), "go to work"},
-                        {DayOfWeek.TUESDAY.name(), "workout"},
-                        {DayOfWeek.WEDNESDAY.name(), "go to the party"}
-                } );
+        System.out.println("\n---------------- Family2 ------------------------");
+        Human family2Mother = new Human("Ayise", "Agayeva", 1950);
+        Human family2Father = new Human("Samir", "Agayev", 1945);
+        Family family2 = new Family(family2Mother, family2Father);
 
-        System.out.println(human1);
+        Human family2Child1 = new Human().bornChild(family2);
+        Human family2Child2 = new Human().bornChild(family2);
+        family2.addChild(family2Child1);
+        System.out.println("New Child Added! Family Count is: " + family2.countFamily());
+        family2.addChild(family2Child2);
+        System.out.println("New Child Added! Family Count is: " + family2.countFamily());
+        family2.setPet(dog2);
 
-        Pet pet1 = new Dog("Rick", 1, 40,
+        System.out.println("Pet Added! Welcome " + dog2.getNickname());
+        System.out.print("eat method: ");
+        dog2.eat();
+        System.out.print("respond method: ");
+        dog2.respond();
+        System.out.println("Family Count is: " + family2.countFamily());
+        System.out.println(family2);
+
+
+
+
+        Dog dog3 = new Dog("Rick", 1, 40,
                 new String[]{"jump", "lick", "smell", "play", "bark"});
-
-        System.out.println(pet1);
-        System.out.println(pet1.getSpecies());*/
+        System.out.println(dog3);
+        dog3.foul();
+        System.out.println(dog3.getSpecies());
     }
 }

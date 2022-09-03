@@ -144,6 +144,10 @@ public class Family {
         return children;
     }
 
+    public void setPet(Pet pet){
+        this.pet = pet;
+    }
+
     public Pet getPet() {
         return pet;
     }

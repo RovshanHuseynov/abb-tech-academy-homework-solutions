@@ -2,8 +2,9 @@ package homework7;
 
 import java.util.Arrays;
 import java.util.Objects;
+import java.util.Random;
 
-public class Human {
+public class Human implements HumanCreator{
     static {
         System.out.println("Human class is being loaded");
     }
@@ -26,6 +27,13 @@ public class Human {
         this.year = year;
     }
 
+    public Human(String name, String surname, int year, int iq){
+        this.name = name;
+        this.surname = surname;
+        this.year = year;
+        this.iq = iq;
+    }
+
     public Human(String name, String surname, int year, int iq, String[][] schedule) {
         this.name = name;
         this.surname = surname;
@@ -36,6 +44,29 @@ public class Human {
 
     public void greetPet(){
         System.out.println("I am greeting my Pet");
+    }
+
+    @Override
+    public Human bornChild(Family family){
+        String[] manNames = {"Samir", "Amil", "Kamil", "Letif", "Eli", "Arif", "Ehed", "Anar", "Nadir", "Emil", "Ilkin", "Amal"};
+        String[] womanNames = {"Lale", "Kemale", "Fidan", "Nergiz", "Sunbul", "Lamiye", "Aydan", "Sedaqet", "Leyla", "Guler", "Jale", "Leman"};
+
+        Random random = new Random();
+        int childSex = random.nextInt(2);
+
+        if(childSex == 0){
+            return new Man(manNames[random.nextInt(12)],
+                    family.getFather().getSurname(),
+                    1990 + random.nextInt(20),
+                    (family.getFather().iq + family.getMother().iq) / 2);
+        } else if(childSex == 1){
+            return new Woman(womanNames[random.nextInt(12)],
+                    family.getFather().getSurname(),
+                    1990 + random.nextInt(20),
+                    (family.getFather().iq + family.getMother().iq) / 2);
+        }
+
+        return new Human();
     }
 
     @Override

@@ -105,7 +105,7 @@ public class Family {
         return Objects.equals(this.father, that.father) &&
                 Objects.equals(this.mother, that.mother) &&
                  Objects.equals(this.pet, that.pet) &&
-                  Objects.deepEquals(this.children, that.children);
+                  Arrays.equals(this.children, that.children);
     }
 
     @Override

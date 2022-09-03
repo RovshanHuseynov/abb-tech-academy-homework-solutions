@@ -56,6 +56,18 @@ public class FamilyTest {
         assertTrue(human2.equals(human3), "No they are not the same");
     }
 
+    @Test
+    @DisplayName("Testing equality of hashcode of two humans with assertTrue")
+    public void test6(){
+        assertEquals(human1.hashCode(), human2.hashCode(), "No they are not the same");
+    }
+
+    @Test
+    @DisplayName("Testing equality of hashcode of two humans with assertTrue")
+    public void test7(){
+        assertEquals(human2.hashCode(), human3.hashCode(), "No they are not the same");
+    }
+
     @Disabled
     @DisplayName("First Test is being tested")
     public void firstTest(){

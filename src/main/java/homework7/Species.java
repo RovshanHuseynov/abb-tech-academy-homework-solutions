@@ -8,16 +8,13 @@ public enum Species {
     FISH(false, 0, false),
     DOMESTIC_CAT(false, 4, true),
     ROBO_CAT(false, 4,true),
-    UNKNOWN(false, 0, false);
+    UNKNOWN();
 
     private boolean canFly;
     private int numberOfLegs;
     private boolean hasFur;
 
     Species(){
-        this.canFly = false;
-        this.numberOfLegs = 0;
-        this.hasFur = false;
     }
 
     Species(boolean canFly, int numberOfLegs, boolean hasFur) {

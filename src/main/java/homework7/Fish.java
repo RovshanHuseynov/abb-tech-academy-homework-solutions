@@ -2,7 +2,7 @@ package homework7;
 
 public class Fish extends Pet{
     public Fish() {
-        super();
+        super(Species.FISH);
     }
 
     public Fish(String nickname) {

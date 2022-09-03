@@ -1,8 +1,8 @@
 package homework7;
 
-public class RoboCat extends Pet{
+public class RoboCat extends Pet implements Foulable{
     public RoboCat() {
-        super();
+        super(Species.ROBO_CAT);
     }
 
     public RoboCat(String nickname) {
@@ -16,5 +16,10 @@ public class RoboCat extends Pet{
     @Override
     public void respond() {
         System.out.println("Hello, owner. I am - " + super.getNickname() + ". I miss you!");
+    }
+
+    @Override
+    public void foul() {
+        System.out.println("'I need to cover it up");
     }
 }

@@ -21,6 +21,10 @@ public abstract class Pet {
         this.species = Species.UNKNOWN;
     }
 
+    public Pet(Species species){
+        this.species = Species.UNKNOWN;
+    }
+
     public Pet(Species species, String nickname){
         this.species = species;
         this.nickname = nickname;
@@ -39,10 +43,6 @@ public abstract class Pet {
     }
 
     public abstract void respond();
-
-    public void foul(){
-        System.out.println("I need to cover it up");
-    }
 
     @Override
     public String toString() {

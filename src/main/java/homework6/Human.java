@@ -47,6 +47,7 @@ public class Human {
 
     @Override
     public boolean equals(Object o) {
+        if(o == null) return false;
         if(this.hashCode() == o.hashCode()) return true;
         if(this == o) return true;
         if(!(o instanceof Human)) return false;

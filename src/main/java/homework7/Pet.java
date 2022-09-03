@@ -18,6 +18,7 @@ public abstract class Pet {
     private String[] habits;
 
     public Pet(){
+        this.species = Species.UNKNOWN;
     }
 
     public Pet(Species species, String nickname){
@@ -25,7 +26,8 @@ public abstract class Pet {
         this.nickname = nickname;
     }
 
-    public Pet(String nickname, int age, int trickLevel, String[] habits) {
+    public Pet(Species species, String nickname, int age, int trickLevel, String[] habits) {
+        this.species = species;
         this.nickname = nickname;
         this.age = age;
         this.trickLevel = trickLevel;
@@ -38,9 +40,9 @@ public abstract class Pet {
 
     public abstract void respond();
 
-    /*public void foul(){
+    public void foul(){
         System.out.println("I need to cover it up");
-    }*/
+    }
 
     @Override
     public String toString() {

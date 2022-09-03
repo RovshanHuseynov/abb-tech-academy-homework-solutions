@@ -15,7 +15,7 @@ public class App7 {
 
         System.out.println(human1);
 
-        Pet pet1 = new Pet(Species.DOG, "Rick", 1, 40,
+        Pet pet1 = new Dog("Rick", 1, 40,
                 new String[]{"jump", "lick", "smell", "play", "bark"});
 
         System.out.println(pet1);

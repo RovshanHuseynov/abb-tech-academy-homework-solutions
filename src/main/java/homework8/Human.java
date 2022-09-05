@@ -1,6 +1,6 @@
 package homework8;
 
-import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 import java.util.Random;
 
@@ -16,7 +16,7 @@ public class Human implements HumanCreator {
     private String surname;
     private int year;
     private int iq; // number from 1 to 100
-    private String[][] schedule; // day of the week, type of the activity
+    private List<List<String>> schedule; // day of the week, type of the activity
 
     public Human(){
     }
@@ -34,7 +34,7 @@ public class Human implements HumanCreator {
         this.iq = iq;
     }
 
-    public Human(String name, String surname, int year, int iq, String[][] schedule) {
+    public Human(String name, String surname, int year, int iq, List<List<String>> schedule) {
         this.name = name;
         this.surname = surname;
         this.year = year;
@@ -76,7 +76,7 @@ public class Human implements HumanCreator {
                 ", surname='" + surname + '\'' +
                 ", year=" + year +
                 ", iq=" + iq +
-                ", schedule=" + Arrays.deepToString(schedule) +
+                ", schedule=" + schedule.hashCode() +
                 '}';
     }
 
@@ -92,7 +92,7 @@ public class Human implements HumanCreator {
                 this.iq == that.iq &&
                  Objects.equals(this.name, that.name) &&
                   Objects.equals(this.surname, that.surname) &&
-                   Objects.deepEquals(this.schedule, that.schedule);
+                   Objects.equals(this.schedule, that.schedule);
     }
 
     @Override
@@ -102,7 +102,7 @@ public class Human implements HumanCreator {
         result = result * 31 + surname.hashCode();
         result = result * 31 + year;
         result = result * 31 + iq;
-        result = result * 31 + Arrays.deepHashCode(schedule);
+        result = result * 31 + schedule.hashCode();
         return result;
     }
 
@@ -134,11 +134,11 @@ public class Human implements HumanCreator {
         return iq;
     }
 
-    public void setSchedule(String[][] schedule){
+    public void setSchedule(List<List<String>> schedule){
         this.schedule = schedule;
     }
 
-    public String[][] getSchedule() {
+    public List<List<String>> getSchedule() {
         return schedule;
     }
 }

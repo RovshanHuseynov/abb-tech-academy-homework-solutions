@@ -1,8 +1,7 @@
 package homework8;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 public abstract class Pet {
     static {
@@ -16,7 +15,7 @@ public abstract class Pet {
     private String nickname;
     private int age;
     private int trickLevel; // number from 1 to 100
-    private List<String> habits;
+    private Set<String> habits;
 
     public Pet(){
         this.species = Species.UNKNOWN;
@@ -31,7 +30,7 @@ public abstract class Pet {
         this.nickname = nickname;
     }
 
-    public Pet(Species species, String nickname, int age, int trickLevel, List<String> habits) {
+    public Pet(Species species, String nickname, int age, int trickLevel, Set<String> habits) {
         this.species = species;
         this.nickname = nickname;
         this.age = age;
@@ -109,7 +108,7 @@ public abstract class Pet {
         return trickLevel;
     }
 
-    public List<String> getHabits() {
+    public Set<String> getHabits() {
         return habits;
     }
 }

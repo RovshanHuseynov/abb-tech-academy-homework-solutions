@@ -1,6 +1,6 @@
 package homework8;
 
-import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Random;
 
@@ -16,7 +16,7 @@ public class Human implements HumanCreator {
     private String surname;
     private int year;
     private int iq; // number from 1 to 100
-    private List<List<String>> schedule; // day of the week, type of the activity
+    private Map<DayOfWeek, String> schedule; // day of the week, type of the activity
 
     public Human(){
     }
@@ -34,7 +34,7 @@ public class Human implements HumanCreator {
         this.iq = iq;
     }
 
-    public Human(String name, String surname, int year, int iq, List<List<String>> schedule) {
+    public Human(String name, String surname, int year, int iq, Map<DayOfWeek, String> schedule) {
         this.name = name;
         this.surname = surname;
         this.year = year;
@@ -76,7 +76,7 @@ public class Human implements HumanCreator {
                 ", surname='" + surname + '\'' +
                 ", year=" + year +
                 ", iq=" + iq +
-                ", schedule=" + schedule.hashCode() +
+                ", schedule=" + schedule +
                 '}';
     }
 
@@ -134,11 +134,11 @@ public class Human implements HumanCreator {
         return iq;
     }
 
-    public void setSchedule(List<List<String>> schedule){
+    public void setSchedule(Map<DayOfWeek, String> schedule){
         this.schedule = schedule;
     }
 
-    public List<List<String>> getSchedule() {
+    public Map<DayOfWeek, String> getSchedule() {
         return schedule;
     }
 }

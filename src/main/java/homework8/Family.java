@@ -1,8 +1,6 @@
 package homework8;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class Family {
     static {
@@ -16,12 +14,13 @@ public class Family {
     private Human father;
     private Human mother;
     private List<Human> children;
-    private Pet pet;
+    private Set<Pet> pet;
 
     public Family(Human father, Human mother) {
         this.father = father;
         this.mother = mother;
         this.children = new ArrayList<>();
+        this.pet = new HashSet<>();
     }
 
     public boolean addChild(Human child){
@@ -50,7 +49,7 @@ public class Family {
                 "father=" + father +
                 ", mother=" + mother +
                 ", child=" + children.toString() +
-                ", pet=" + pet +
+                ", pet=" + pet.toString() +
                 '}';
     }
 
@@ -102,11 +101,11 @@ public class Family {
         return children;
     }
 
-    public void setPet(Pet pet){
+    public void setPet(Set<Pet> pet){
         this.pet = pet;
     }
 
-    public Pet getPet() {
+    public Set<Pet> getPet() {
         return pet;
     }
 }

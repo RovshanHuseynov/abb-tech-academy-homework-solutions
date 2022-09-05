@@ -1,5 +1,7 @@
 package homework8;
 
+import java.util.Set;
+
 public class Fish extends Pet {
     public Fish() {
         super(Species.FISH);
@@ -9,7 +11,7 @@ public class Fish extends Pet {
         super(Species.FISH, nickname);
     }
 
-    public Fish(String nickname, int age, int trickLevel, String[] habits) {
+    public Fish(String nickname, int age, int trickLevel, Set<String> habits) {
         super(Species.FISH, nickname, age, trickLevel, habits);
     }
 

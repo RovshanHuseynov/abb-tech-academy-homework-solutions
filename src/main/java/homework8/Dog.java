@@ -1,5 +1,7 @@
 package homework8;
 
+import java.util.Set;
+
 public class Dog extends Pet implements Foulable {
     public Dog(boolean nothing){
         // special contructor only for creating UNKNOWN species pet
@@ -14,7 +16,7 @@ public class Dog extends Pet implements Foulable {
         super(Species.DOG, nickname);
     }
 
-    public Dog(String nickname, int age, int trickLevel, String[] habits) {
+    public Dog(String nickname, int age, int trickLevel, Set<String> habits) {
         super(Species.DOG, nickname, age, trickLevel, habits);
     }
 

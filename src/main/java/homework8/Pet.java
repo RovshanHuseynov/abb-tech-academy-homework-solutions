@@ -1,6 +1,7 @@
 package homework8;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 public abstract class Pet {
@@ -15,7 +16,7 @@ public abstract class Pet {
     private String nickname;
     private int age;
     private int trickLevel; // number from 1 to 100
-    private String[] habits;
+    private List<String> habits;
 
     public Pet(){
         this.species = Species.UNKNOWN;
@@ -30,7 +31,7 @@ public abstract class Pet {
         this.nickname = nickname;
     }
 
-    public Pet(Species species, String nickname, int age, int trickLevel, String[] habits) {
+    public Pet(Species species, String nickname, int age, int trickLevel, List<String> habits) {
         this.species = species;
         this.nickname = nickname;
         this.age = age;
@@ -50,7 +51,7 @@ public abstract class Pet {
                 "nickname='" + nickname + '\'' +
                 ", age='" + age + '\'' +
                 ", trickLevel=" + trickLevel +
-                ", habits=" + Arrays.toString(habits) +
+                ", habits=" + habits.toString() +
                 '}';
     }
 
@@ -66,7 +67,7 @@ public abstract class Pet {
                 this.trickLevel == that.trickLevel &&
                  Objects.equals(this.species, that.species) &&
                   Objects.equals(this.nickname, that.nickname) &&
-                   Arrays.equals(this.habits, that.habits);
+                   Objects.equals(this.habits, that.habits);
     }
 
     @Override
@@ -76,7 +77,7 @@ public abstract class Pet {
         result = result * 31 + nickname.hashCode();
         result = result * 31 + age;
         result = result * 31 + trickLevel;
-        result = result * 31 + Arrays.hashCode(habits);
+        result = result * 31 + habits.hashCode();
         return result;
     }
 
@@ -108,7 +109,7 @@ public abstract class Pet {
         return trickLevel;
     }
 
-    public String[] getHabits() {
+    public List<String> getHabits() {
         return habits;
     }
 }

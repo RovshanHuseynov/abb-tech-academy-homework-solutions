@@ -14,17 +14,21 @@ public class Family {
     private Human father;
     private Human mother;
     private List<Human> children;
-    private Set<Pet> pet;
+    private Set<Pet> pets;
 
     public Family(Human father, Human mother) {
         this.father = father;
         this.mother = mother;
         this.children = new ArrayList<>();
-        this.pet = new HashSet<>();
+        this.pets = new HashSet<>();
     }
 
     public boolean addChild(Human child){
         return children.add(child);
+    }
+
+    public boolean addPet(Pet pet){
+        return pets.add(pet);
     }
 
     public boolean deleteChild(Human child){
@@ -39,7 +43,7 @@ public class Family {
 
     public int countFamily() {
         int cntFamilyMembers = this.children.size() + 2;
-        if (this.pet != null) cntFamilyMembers++;
+        if (this.pets != null) cntFamilyMembers++;
         return cntFamilyMembers;
     }
 
@@ -49,7 +53,7 @@ public class Family {
                 "father=" + father +
                 ", mother=" + mother +
                 ", child=" + children.toString() +
-                ", pet=" + pet.toString() +
+                ", pet=" + pets.toString() +
                 '}';
     }
 
@@ -63,7 +67,7 @@ public class Family {
         Family that = (Family) o;
         return Objects.equals(this.father, that.father) &&
                 Objects.equals(this.mother, that.mother) &&
-                 Objects.equals(this.pet, that.pet) &&
+                 Objects.equals(this.pets, that.pets) &&
                   Objects.equals(this.children, that.children);
     }
 
@@ -73,7 +77,7 @@ public class Family {
         result = result * 31 + father.hashCode();
         result = result * 31 + mother.hashCode();
         result = result * 31 + children.hashCode();
-        result = result * 31 + pet.hashCode();
+        result = result * 31 + pets.hashCode();
         return result;
     }
 
@@ -101,11 +105,7 @@ public class Family {
         return children;
     }
 
-    public void setPet(Set<Pet> pet){
-        this.pet = pet;
-    }
-
-    public Set<Pet> getPet() {
-        return pet;
+    public Set<Pet> getPets() {
+        return pets;
     }
 }

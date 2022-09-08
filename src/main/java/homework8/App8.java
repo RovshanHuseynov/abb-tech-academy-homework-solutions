@@ -20,7 +20,7 @@ public class App8 {
         family1.addChild(family1Child3);
         Pet cat1 = new DomesticCat("Luna", 2, 30,
                 new HashSet<String>(){{add("jump"); add("lick"); add("sleep");}});
-        family1.setPet(new HashSet<Pet>(){{add(cat1);}});
+        family1.addPet(cat1);
         System.out.println("Family1 Count is: " + family1.countFamily());
         System.out.println(family1);
     }

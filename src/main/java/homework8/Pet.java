@@ -11,7 +11,7 @@ public abstract class Pet {
     {
         System.out.println("New object of Pet class is being loaded");
     }
-    private Species species;
+    private final Species species;
     private String nickname;
     private int age;
     private int trickLevel; // number from 1 to 100

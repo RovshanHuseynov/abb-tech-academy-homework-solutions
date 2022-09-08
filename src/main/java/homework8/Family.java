@@ -11,10 +11,10 @@ public class Family {
         System.out.println("New object of Family class is being loaded");
     }
 
-    private Human father;
-    private Human mother;
-    private List<Human> children;
-    private Set<Pet> pets;
+    private final Human father;
+    private final Human mother;
+    private final List<Human> children;
+    private final Set<Pet> pets;
 
     public Family(Human father, Human mother) {
         this.father = father;
@@ -43,7 +43,7 @@ public class Family {
 
     public int countFamily() {
         int cntFamilyMembers = this.children.size() + 2;
-        if (this.pets != null) cntFamilyMembers++;
+        cntFamilyMembers += pets.size();
         return cntFamilyMembers;
     }
 
@@ -52,8 +52,8 @@ public class Family {
         return "Family {" +
                 "father=" + father +
                 ", mother=" + mother +
-                ", child=" + children.toString() +
-                ", pet=" + pets.toString() +
+                ", child=" + children +
+                ", pet=" + pets +
                 '}';
     }
 

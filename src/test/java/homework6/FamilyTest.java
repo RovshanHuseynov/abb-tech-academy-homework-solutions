@@ -11,7 +11,7 @@ public class FamilyTest {
     Human human3;
 
     @BeforeEach
-    void init(){
+    void setUp(){
         family1 = new Family(new Human(), new Human());
 
         human1 = new Human("Rovshan", "Huseynov", 1994, 90,

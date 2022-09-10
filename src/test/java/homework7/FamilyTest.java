@@ -39,4 +39,17 @@ class FamilyTest {
         family1.deleteChild(family1Child2);
         assertEquals(family1.countFamily(), 4, "No count is not the same");
     }
+
+    @Test
+    void test3(){
+        Human newChild = new Human().bornChild(family1);
+        if(newChild instanceof Man){
+            assertEquals(newChild.getSurname(), family1.getFather().getSurname()
+                    ,"surnames are not the same");
+        }
+        else if(newChild instanceof Woman){
+            assertEquals(newChild.getSurname(), family1.getMother().getSurname()
+                    ,"surnames are not the same");
+        }
+    }
 }

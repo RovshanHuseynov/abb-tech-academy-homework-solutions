@@ -42,9 +42,7 @@ public class Family {
     }
 
     public int countFamily() {
-        int cntFamilyMembers = this.children.size() + 2;
-        cntFamilyMembers += pets.size();
-        return cntFamilyMembers;
+        return 2 + this.children.size() + this.pets.size();
     }
 
     @Override

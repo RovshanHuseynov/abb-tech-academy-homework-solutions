@@ -13,6 +13,10 @@ public class FamilyService {
         return familyDao.getAllFamilies();
     }
 
+    public void displayAllFamilies(){
+        familyDao.displayAllFamilies();
+    }
+
     /*
     getAllFamilies - to get a list of all the families.
     displayAllFamilies - to put all the families on the screen (in the indexed list) with all the family members.

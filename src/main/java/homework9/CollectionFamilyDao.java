@@ -11,6 +11,13 @@ public class CollectionFamilyDao implements FamilyDao{
     }
 
     @Override
+    public void displayAllFamilies(){
+        System.out.println("displayAllFamilies");
+        families.stream()
+                .forEach(System.out::println);
+    }
+
+    @Override
     public Family getFamilyByIndex(int index) {
         if(index < 0 || index >= families.size()){
             return null;

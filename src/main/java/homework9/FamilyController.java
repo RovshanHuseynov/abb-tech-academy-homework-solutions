@@ -12,4 +12,8 @@ public class FamilyController {
     public List<Family> getAllFamilies(){
         return familyService.getAllFamilies();
     }
+
+    public void displayAllFamilies(){
+        familyService.displayAllFamilies();
+    }
 }

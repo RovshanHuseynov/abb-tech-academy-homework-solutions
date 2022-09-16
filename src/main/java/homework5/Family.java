@@ -35,18 +35,14 @@ public class Family {
         refillChildArray();
     }
 
-    public boolean deleteChild(Human child){
-        int len = this.child.length;
-
-        for(int i=0; i<len; i++){
-            if(this.child[i].hashCode() == child.hashCode() && this.child[i].equals(child)){
-                this.child[i] = null;
-                refillChildArray();
-                return true;
-            }
+    public boolean deleteChild(int index){
+        if(index < 0 || index >= this.child.length){
+            return false;
         }
+
+        this.child[index] = null;
         refillChildArray();
-        return false;
+        return true;
     }
 
     public int countFamily(){

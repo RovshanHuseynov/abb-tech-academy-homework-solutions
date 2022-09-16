@@ -23,6 +23,7 @@ public class Family {
         this.child = new Human[10];
     }
 
+    // TODO change Human child to int index
     public void addChild(Human child){
         int len = this.child.length;
 

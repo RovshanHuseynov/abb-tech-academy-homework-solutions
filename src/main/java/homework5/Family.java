@@ -23,16 +23,32 @@ public class Family {
         this.child = new Human[10];
     }
 
-    // TODO change Human child to int index
     public void addChild(Human child){
         int len = this.child.length;
 
         for(int i=0; i<len; i++){
             if(this.child[i] == null){
                 this.child[i] = child;
+                break;
             }
         }
         refillChildArray();
+    }
+
+    public boolean deleteChild(Human child){
+        int len = this.child.length;
+
+        for(int i=0; i<len; i++){
+            if(this.child[i] != null
+            && this.child[i].hashCode() == child.hashCode()
+            && this.child[i].equals(child)){
+                this.child[i] = null;
+                refillChildArray();
+                return true;
+            }
+        }
+        refillChildArray();
+        return false;
     }
 
     public boolean deleteChild(int index){
@@ -84,6 +100,7 @@ public class Family {
 
     @Override
     public boolean equals(Object o) {
+        if(o == null) return false;
         if(this.hashCode() != o.hashCode()) return false;
         if (this == o) return true;
         if(!(o instanceof Family)) return false;
@@ -114,12 +131,7 @@ public class Family {
     }
 
     public void setChild(Human child){
-        for(int i=0; i<this.child.length; i++){
-            if(this.child[i] == null){
-                this.child[i] = child;
-                break;
-            }
-        }
+        addChild(child);
     }
 
     public Human[] getChild() {

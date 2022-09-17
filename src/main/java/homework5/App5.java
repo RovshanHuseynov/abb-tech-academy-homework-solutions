@@ -18,12 +18,20 @@ public class App5 {
         System.out.println(child1.equals(child2));
 
         Family family1 = new Family(father1, mother1);
+        System.out.println(family1.countFamily());
         family1.setPet(pet1);
         family1.setChild(child1);
         family1.setChild(child2);
-        System.out.println(family1);
+        System.out.println("family1.countFamily(): " + family1.countFamily());
+        family1.addChild(child3);
+        System.out.println("family1.countFamily(): " + family1.countFamily());
+        family1.deleteChild(child3);
+        System.out.println("family1.countFamily(): " + family1.countFamily());
+        family1.deleteChild(0);
+        System.out.println("family1.countFamily(): " + family1.countFamily());
+        System.out.println("family1: " + family1);
 
         Family family2 = family1;
-        System.out.println(family1.equals(family2));
+        System.out.println("family1 equals family2: " + family1.equals(family2));
     }
 }

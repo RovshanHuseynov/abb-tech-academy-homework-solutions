@@ -17,6 +17,14 @@ public class FamilyService {
         familyDao.displayAllFamilies();
     }
 
+    public List<Family> getFamiliesBiggerThan(){
+        return null;
+    }
+
+    public List<Family> getFamiliesLessThan(){
+        return null;
+    }
+
     /*
     getAllFamilies - to get a list of all the families.
     displayAllFamilies - to put all the families on the screen (in the indexed list) with all the family members.

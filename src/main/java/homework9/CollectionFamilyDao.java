@@ -1,6 +1,7 @@
 package homework9;
 
 import java.util.List;
+import java.util.Optional;
 
 public class CollectionFamilyDao implements FamilyDao{
     private List<Family> families;
@@ -36,13 +37,7 @@ public class CollectionFamilyDao implements FamilyDao{
 
     @Override
     public boolean deleteFamily(Family family) {
-        for(Family cur : families){
-            if(cur.equals(family)){
-                families.remove(family);
-                return true;
-            }
-        }
-        return false;
+        return families.remove(family);
     }
 
     @Override

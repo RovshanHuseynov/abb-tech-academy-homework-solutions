@@ -25,6 +25,13 @@ public class FamilyService {
         return null;
     }
 
+    public int countFamiliesWithMemberNumber(){
+        return 0;
+    }
+
+    public void createNewFamily(Human father, Human mother){
+    }
+
     /*
     getAllFamilies - to get a list of all the families.
     displayAllFamilies - to put all the families on the screen (in the indexed list) with all the family members.

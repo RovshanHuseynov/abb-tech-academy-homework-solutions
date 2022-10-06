@@ -1,7 +1,6 @@
 package homework9;
 
 import java.util.List;
-import java.util.Optional;
 
 public class CollectionFamilyDao implements FamilyDao{
     private List<Family> families;

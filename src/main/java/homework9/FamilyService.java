@@ -32,6 +32,10 @@ public class FamilyService {
     public void createNewFamily(Human father, Human mother){
     }
 
+    public void adoptChild(Family family, Human human){
+
+    }
+
     /*
     getAllFamilies - to get a list of all the families.
     displayAllFamilies - to put all the families on the screen (in the indexed list) with all the family members.

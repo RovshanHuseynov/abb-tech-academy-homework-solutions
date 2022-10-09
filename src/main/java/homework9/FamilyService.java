@@ -40,6 +40,10 @@ public class FamilyService {
         return null;
     }
 
+    public void deleteAllChildrenOlderThen(){
+
+    }
+
     public List<Pet> getPets(){
         return null;
     }

@@ -36,6 +36,14 @@ public class FamilyService {
 
     }
 
+    public Family getFamilyById(int id){
+        return null;
+    }
+
+    public List<Pet> getPets(){
+        return null;
+    }
+
     /*
     getAllFamilies - to get a list of all the families.
     displayAllFamilies - to put all the families on the screen (in the indexed list) with all the family members.

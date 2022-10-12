@@ -31,11 +31,15 @@ public class FamilyService {
                 .collect(Collectors.toList());
     }
 
-    public int countFamiliesWithMemberNumber(){
-        return 0;
+    public long countFamiliesWithMemberNumber(int memberCount){
+        return familyDao.getAllFamilies().stream()
+                .filter(family -> family.countFamily() == memberCount)
+                .count();
     }
 
     public void createNewFamily(Human father, Human mother){
+        Family family = new Family(father, mother);
+        familyDao.saveFamily(family);
     }
 
     public void adoptChild(Family family, Human human){

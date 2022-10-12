@@ -3,6 +3,7 @@ package homework9;
 import java.util.List;
 
 public class CollectionFamilyDao implements FamilyDao{
+    // database class
     private List<Family> families;
 
     @Override

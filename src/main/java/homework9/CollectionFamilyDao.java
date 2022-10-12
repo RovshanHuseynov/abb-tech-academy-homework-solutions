@@ -3,19 +3,11 @@ package homework9;
 import java.util.List;
 
 public class CollectionFamilyDao implements FamilyDao{
-    // database class
     private List<Family> families;
 
     @Override
     public List<Family> getAllFamilies() {
         return families;
-    }
-
-    @Override
-    public void displayAllFamilies(){
-        System.out.println("displayAllFamilies");
-        families.stream()
-                .forEach(System.out::println);
     }
 
     @Override
@@ -54,4 +46,13 @@ public class CollectionFamilyDao implements FamilyDao{
 
         if(!isSaved) this.families.add(family);
     }
+
+    /*
+    @Override
+    public void displayAllFamilies(){
+        System.out.println("displayAllFamilies");
+        families.stream()
+                .forEach(System.out::println);
+    }
+     */
 }

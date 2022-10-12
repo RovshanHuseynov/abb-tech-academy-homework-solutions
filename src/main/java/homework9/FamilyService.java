@@ -1,6 +1,7 @@
 package homework9;
 
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class FamilyService {
@@ -72,12 +73,13 @@ public class FamilyService {
         return familyDao.getAllFamilies().get(index);
     }
 
-    public List<Pet> getPets(){
-        return null;
+    public Set<Pet> getPets(int index){
+        return familyDao.getAllFamilies().get(index).getPets();
     }
 
-    public List<Pet> addPet(){
-        return null;
+    public void addPet(int index, Pet pet){
+        Family family = familyDao.getAllFamilies().get(index);
+        family.addPet(pet);
+        familyDao.saveFamily(family);
     }
-
 }

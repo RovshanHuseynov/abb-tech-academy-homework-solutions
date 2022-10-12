@@ -42,19 +42,42 @@ public class FamilyService {
         familyDao.saveFamily(family);
     }
 
-    public void adoptChild(Family family, Human human){
-
+    public boolean deleteFamilyByIndex(int index){
+        return familyDao.deleteFamily(index);
     }
 
-    public Family getFamilyById(int id){
-        return null;
+    public void bornChild(){
+        // TODO implement it
     }
 
-    public void deleteAllChildrenOlderThen(){
+    public Family adoptChild(Family family, Human child){
+        family.addChild(child);
+        familyDao.saveFamily(family);
+        return family;
+    }
 
+    public void deleteAllChildrenOlderThan(int age){
+        // TODO fix this
+        List<Human> children = familyDao.getAllFamilies().stream()
+                .flatMap(family -> family.getChildren().stream())
+                .filter(child -> 2022 - child.getYear() > age)
+                .collect(Collectors.toList());
+    }
+
+    public int count(){
+        return familyDao.getAllFamilies().size();
+    }
+
+    public Family getFamilyById(int index){
+        return familyDao.getAllFamilies().get(index);
     }
 
     public List<Pet> getPets(){
         return null;
     }
+
+    public List<Pet> addPet(){
+        return null;
+    }
+
 }

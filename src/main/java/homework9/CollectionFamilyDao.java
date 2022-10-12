@@ -46,13 +46,4 @@ public class CollectionFamilyDao implements FamilyDao{
 
         if(!isSaved) this.families.add(family);
     }
-
-    /*
-    @Override
-    public void displayAllFamilies(){
-        System.out.println("displayAllFamilies");
-        families.stream()
-                .forEach(System.out::println);
-    }
-     */
 }

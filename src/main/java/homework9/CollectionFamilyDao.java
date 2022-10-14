@@ -3,7 +3,11 @@ package homework9;
 import java.util.List;
 
 public class CollectionFamilyDao implements FamilyDao{
-    private List<Family> families;
+    private final List<Family> families;
+
+    public CollectionFamilyDao(List<Family> families) {
+        this.families = families;
+    }
 
     @Override
     public List<Family> getAllFamilies() {

@@ -77,6 +77,7 @@ public class FamilyService {
     }
 
     public void deleteAllChildrenOlderThan(int age){
+        // TODO fix it
         familyDao.getAllFamilies().stream()
                 .flatMap(family -> family.getChildren().stream()
                         .filter(child -> 2022 - child.getYear() > age)

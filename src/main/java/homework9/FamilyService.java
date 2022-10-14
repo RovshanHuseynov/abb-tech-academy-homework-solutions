@@ -1,6 +1,7 @@
 package homework9;
 
 import java.util.List;
+import java.util.Random;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -47,8 +48,26 @@ public class FamilyService {
         return familyDao.deleteFamily(index);
     }
 
-    public void bornChild(){
-        // TODO implement it
+    public Family bornChild(Family family){
+        String[] manNames = {"Samir", "Amil", "Kamil", "Letif", "Eli", "Arif", "Ehed", "Anar", "Nadir", "Emil", "Ilkin", "Amal"};
+        String[] womanNames = {"Lale", "Kemale", "Fidan", "Nergiz", "Sunbul", "Lamiye", "Aydan", "Sedaqet", "Leyla", "Guler", "Jale", "Leman"};
+
+        Random random = new Random();
+        int childSex = random.nextInt(2);
+        if(childSex == 0){
+            family.addChild(new Man(manNames[random.nextInt(12)],
+                    family.getFather().getSurname(),
+                    1990 + random.nextInt(20),
+                    (family.getFather().getIq() + family.getMother().getIq() / 2)));
+        } else if(childSex == 1){
+            family.addChild(new Woman(womanNames[random.nextInt(12)],
+                    family.getMother().getSurname(),
+                    1990 + random.nextInt(20),
+                    (family.getFather().getIq() + family.getMother().getIq() / 2)));
+        }
+
+        familyDao.saveFamily(family);
+        return family;
     }
 
     public Family adoptChild(Family family, Human child){

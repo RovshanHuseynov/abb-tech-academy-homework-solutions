@@ -1,5 +1,6 @@
 package homework9;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
@@ -88,13 +89,20 @@ public class FamilyService {
                 .forEach(familyDao::saveFamily);*/
 
         List<Family> families = familyDao.getAllFamilies();
+        List<Human> deletedChildren;
         for(Family family : families){
             List<Human> children = family.getChildren();
+            deletedChildren = new ArrayList<>();
             for(Human child : children){
                 if(2022 - child.getYear() > age){
-                    family.deleteChild(child);
+                    deletedChildren.add(child);
                 }
             }
+
+            for(Human child : deletedChildren) {
+                family.deleteChild(child);
+            }
+
             familyDao.saveFamily(family);
         }
     }

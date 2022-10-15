@@ -20,7 +20,10 @@ public class App9 {
         CollectionFamilyDao collectionFamilyDao = new CollectionFamilyDao(familyList);
         FamilyService familyService = new FamilyService(collectionFamilyDao);
         FamilyController familyController = new FamilyController(familyService);
+        System.out.println("Family list before deletion");
+        familyController.getAllFamilies().forEach(System.out::println);
         familyController.deleteAllChildrenOlderThan(15);
+        System.out.println("Family list after deletion");
         familyController.getAllFamilies().forEach(System.out::println);
     }
 }

@@ -32,7 +32,6 @@ public class Family {
     }
 
     public boolean deleteChild(Human child){
-        System.out.println("deleteChild + " + child);
         return children.remove(child);
     }
 

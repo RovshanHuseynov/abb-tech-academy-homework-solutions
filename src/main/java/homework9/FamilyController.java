@@ -13,6 +13,10 @@ public class FamilyController {
         return familyService.getAllFamilies();
     }
 
+    public boolean deleteFamily(Family family){
+        // TODO implement this
+        return false;
+    }
     public void displayAllFamilies(){
         familyService.displayAllFamilies();
     }

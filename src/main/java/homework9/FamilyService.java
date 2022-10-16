@@ -112,15 +112,15 @@ public class FamilyService {
     }
 
     public Family getFamilyById(int index){
-        return familyDao.getAllFamilies().get(index);
+        return familyDao.getFamilyByIndex(index);
     }
 
     public Set<Pet> getPets(int index){
-        return familyDao.getAllFamilies().get(index).getPets();
+        return familyDao.getFamilyByIndex(index).getPets();
     }
 
     public void addPet(int index, Pet pet){
-        Family family = familyDao.getAllFamilies().get(index);
+        Family family = familyDao.getFamilyByIndex(index);
         family.addPet(pet);
         familyDao.saveFamily(family);
     }

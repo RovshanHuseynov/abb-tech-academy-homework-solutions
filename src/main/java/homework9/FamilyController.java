@@ -17,6 +17,10 @@ public class FamilyController {
         familyService.displayAllFamilies();
     }
 
+    public List<Family> getFamiliesBiggerThan(int memberCount){
+        return familyService.getFamiliesBiggerThan(memberCount);
+    }
+
     public void deleteAllChildrenOlderThan(int age){
         familyService.deleteAllChildrenOlderThan(age);
     }

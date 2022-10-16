@@ -21,9 +21,9 @@ public class App9 {
         FamilyService familyService = new FamilyService(collectionFamilyDao);
         FamilyController familyController = new FamilyController(familyService);
         System.out.println("Family list before deletion");
-        familyController.getAllFamilies().forEach(System.out::println);
+        familyController.displayAllFamilies();
         familyController.deleteAllChildrenOlderThan(10);
         System.out.println("Family size after deletion");
-        familyController.getAllFamilies().forEach(System.out::println);
+        familyController.displayAllFamilies();
     }
 }

@@ -78,8 +78,8 @@ public class FamilyService {
     }
 
     public void deleteAllChildrenOlderThan(int age){
-        // TODO fix it
-        /*familyDao.getAllFamilies().stream()
+        /* version1
+        familyDao.getAllFamilies().stream()
                 .flatMap(family -> family.getChildren().stream()
                         .filter(child -> 2022 - child.getYear() > age)
                         .map(ch -> family.deleteChild(ch))
@@ -88,6 +88,28 @@ public class FamilyService {
         familyDao.getAllFamilies()
                 .forEach(familyDao::saveFamily);*/
 
+
+        /* version2
+        familyDao.getAllFamilies().stream()
+                .forEach(family -> {
+                    family.getChildren().stream()
+                            .filter(child -> 2022 - child.getYear() > age)
+                            .forEach(ch -> family.deleteChild(ch));
+                    familyDao.saveFamily(family);
+                });
+         */
+
+        familyDao.getAllFamilies().stream()
+                .forEach(family -> {
+                    List<Human> notNeededChildrenList = family.getChildren().stream()
+                            .filter(child -> 2022 - child.getYear() > age)
+                            .collect(Collectors.toList());
+                    notNeededChildrenList.stream()
+                            .forEach(ch -> family.deleteChild(ch));
+                    familyDao.saveFamily(family);
+                });
+
+        /* version4
         List<Family> families = familyDao.getAllFamilies();
         List<Human> deletedChildren;
         for(Family family : families){
@@ -104,7 +126,7 @@ public class FamilyService {
             }
 
             familyDao.saveFamily(family);
-        }
+        }*/
     }
 
     public int count(){

@@ -6,9 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class FamilyTest {
     Family family1;
-    Human human1;
-    Human human2;
-    Human human3;
+    Human human1, human2, human3;
 
     @BeforeEach
     void setUp(){

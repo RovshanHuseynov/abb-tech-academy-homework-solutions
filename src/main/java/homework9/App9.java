@@ -22,7 +22,7 @@ public class App9 {
         FamilyController familyController = new FamilyController(familyService);
         System.out.println("Family list before deletion");
         familyController.displayAllFamilies();
-        familyController.deleteAllChildrenOlderThan(10);
+        familyController.deleteAllChildrenOlderThan(20);
         System.out.println("Family size after deletion");
         familyController.displayAllFamilies();
     }

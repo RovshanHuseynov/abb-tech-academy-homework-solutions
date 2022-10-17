@@ -1,6 +1,5 @@
 package homework9;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
@@ -77,56 +76,18 @@ public class FamilyService {
         return family;
     }
 
-    public void deleteAllChildrenOlderThan(int age){
-        /* version1
-        familyDao.getAllFamilies().stream()
-                .flatMap(family -> family.getChildren().stream()
-                        .filter(child -> 2022 - child.getYear() > age)
-                        .map(ch -> family.deleteChild(ch))
-                );
-
+    public void deleteAllChildrenOlderThan(int age) {
         familyDao.getAllFamilies()
-                .forEach(familyDao::saveFamily);*/
-
-
-        /* version2
-        familyDao.getAllFamilies().stream()
                 .forEach(family -> {
-                    family.getChildren().stream()
-                            .filter(child -> 2022 - child.getYear() > age)
-                            .forEach(ch -> family.deleteChild(ch));
-                    familyDao.saveFamily(family);
-                });
-         */
-
-        familyDao.getAllFamilies().stream()
-                .forEach(family -> {
-                    List<Human> notNeededChildrenList = family.getChildren().stream()
+                    List<Human> notNeededChildrenList = family.getChildren()
+                            .stream()
                             .filter(child -> 2022 - child.getYear() > age)
                             .collect(Collectors.toList());
-                    notNeededChildrenList.stream()
-                            .forEach(ch -> family.deleteChild(ch));
+
+                    notNeededChildrenList.forEach(family::deleteChild);
+
                     familyDao.saveFamily(family);
                 });
-
-        /* version4
-        List<Family> families = familyDao.getAllFamilies();
-        List<Human> deletedChildren;
-        for(Family family : families){
-            List<Human> children = family.getChildren();
-            deletedChildren = new ArrayList<>();
-            for(Human child : children){
-                if(2022 - child.getYear() > age){
-                    deletedChildren.add(child);
-                }
-            }
-
-            for(Human child : deletedChildren) {
-                family.deleteChild(child);
-            }
-
-            familyDao.saveFamily(family);
-        }*/
     }
 
     public int count(){

@@ -29,7 +29,7 @@ public class FamilyTest {
     @Test
     @DisplayName("Testing equality of two humans with assertEquals")
     public void test1(){
-        assertEquals(human1, human2, "These two humans are not the same");
+        assertNotEquals(human1, human2, "These two humans are not the same");
     }
 
     @Test
@@ -47,7 +47,7 @@ public class FamilyTest {
     @Test
     @DisplayName("Testing equality of two humans with assertTrue")
     public void test4(){
-        assertTrue(human1.equals(human2), "No they are not the same");
+        assertFalse(human1.equals(human2), "No they are not the same");
     }
 
     @Test
@@ -59,7 +59,7 @@ public class FamilyTest {
     @Test
     @DisplayName("Testing equality of hashcode of two humans with assertTrue")
     public void test6(){
-        assertEquals(human1.hashCode(), human2.hashCode(), "No they are not the same");
+        assertNotEquals(human1.hashCode(), human2.hashCode(), "No they are not the same");
     }
 
     @Test

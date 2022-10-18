@@ -15,9 +15,11 @@ public class Main {
     }
 
     public static int getNumberOfDays(int month){
-        if(month < 8)
-            return 30 + (month % 2);
+        /*if(month < 8)
+            return 30 + 0 + 1 * (month % 2);
         else
-            return 31 - (month % 2);
+            return 30 + 1 + (-1) * (month % 2);*/
+
+        return 30 + (month / 8) + (1 - 2 * (month / 8)) * (month % 2);
     }
 }

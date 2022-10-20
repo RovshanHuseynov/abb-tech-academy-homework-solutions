@@ -1,6 +1,7 @@
 package homework9;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 public class App9 {
@@ -39,5 +40,18 @@ public class App9 {
         System.out.println("countAllFamilies: " + familyController.count());
         familyController.deleteFamilyByIndex(1);
         familyController.displayAllFamilies();
+
+        System.out.println(familyController.getFamilyById(0));
+
+        Pet pet1 = new Dog("Alabash", 1, 100,
+                new HashSet<String>(){{add("jump"); add("lick"); add("sleep");}});
+        familyController.addPet(0, pet1);
+        familyController.getPets(0).forEach(System.out::println);
+        Pet pet2 = new DomesticCat("Luna");
+        System.out.println("pet2 :" + pet2);
+        familyController.addPet(0, pet2);
+        familyController.getPets(0).forEach(System.out::println);
+        System.out.println(familyController.deleteFamilyByIndex(3));
+        System.out.println(familyController.deleteFamilyByIndex(0));
     }
 }

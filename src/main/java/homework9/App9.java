@@ -53,5 +53,12 @@ public class App9 {
         familyController.getPets(0).forEach(System.out::println);
         System.out.println(familyController.deleteFamilyByIndex(3));
         System.out.println(familyController.deleteFamilyByIndex(0));
+
+        System.out.println("family1 count: " + family1.countFamily());
+        familyController.bornChild(family1);
+        System.out.println("family1 count: " + family1.countFamily());
+        Human child4 = new Human("Zeli", "Huseynov", 2010);
+        familyController.adoptChild(family1, child4);
+        System.out.println("family1 count: " + family1.countFamily());
     }
 }

@@ -1,5 +1,6 @@
 package homework8;
 
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -19,15 +20,18 @@ public abstract class Pet {
 
     public Pet(){
         this.species = Species.UNKNOWN;
+        this.habits = new HashSet<>();
     }
 
     public Pet(Species species){
         this.species = species;
+        this.habits = new HashSet<>();
     }
 
     public Pet(Species species, String nickname){
         this.species = species;
         this.nickname = nickname;
+        this.habits = new HashSet<>();
     }
 
     public Pet(Species species, String nickname, int age, int trickLevel, Set<String> habits) {

@@ -26,7 +26,7 @@ public class Main {
         System.out.println("11: " + getFebruary(11));
         System.out.println("12: " + getFebruary(12));*/
 
-        fill2DArrayWithoutIfAndFor (5, 10);
+        fillArray(5, 10);
     }
 
     public static int getNumberOfDays(int month) {
@@ -55,7 +55,8 @@ public class Main {
             return 0;
     }
 
-    public static void fill2DArrayWithoutIfAndFor(int n, int m) {
+    public static void fillArray(int n, int m) {
+        // fill 2D Array with using only 1 for
         int[][] array = new int[n][m];
 
         int cnt = 1;

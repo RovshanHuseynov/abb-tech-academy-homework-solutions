@@ -69,6 +69,8 @@ class FamilyServiceTest {
 
     @Test
     void createNewFamily() {
+        familyController.createNewFamily(father2, mother2);
+        Assertions.assertEquals(2, familyController.count());
     }
 
     @Test

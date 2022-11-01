@@ -75,6 +75,7 @@ class FamilyServiceTest {
 
     @Test
     void deleteFamilyByIndex() {
+        Assertions.assertEquals(false, familyController.deleteFamilyByIndex(3));
     }
 
     @Test
@@ -91,10 +92,12 @@ class FamilyServiceTest {
 
     @Test
     void count() {
+        Assertions.assertEquals(1, familyController.count());
     }
 
     @Test
     void getFamilyById() {
+        Assertions.assertEquals(family1, familyController.getFamilyById(0));
     }
 
     @Test

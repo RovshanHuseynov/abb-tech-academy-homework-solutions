@@ -4,10 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 class FamilyServiceTest {
 
@@ -102,9 +99,16 @@ class FamilyServiceTest {
 
     @Test
     void getPets() {
+        familyController.addPet(0, pet2);
+        Set<Pet> pets = familyController.getFamilyById(0).getPets();
+        Assertions.assertEquals(pets, familyController.getPets(0));
     }
 
     @Test
     void addPet() {
+        int cnt1 = family1.getPets().size();
+        familyController.addPet(0, pet2);
+        int cnt2 = family1.getPets().size();
+        Assertions.assertTrue(cnt2 == cnt1 + 1);
     }
 }

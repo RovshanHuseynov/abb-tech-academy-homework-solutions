@@ -85,7 +85,6 @@ public class FamilyService {
                             .collect(Collectors.toList());
 
                     notNeededChildrenList.forEach(family::deleteChild);
-
                     familyDao.saveFamily(family);
                 });
     }

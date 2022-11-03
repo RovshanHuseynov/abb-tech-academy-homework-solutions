@@ -84,7 +84,11 @@ class FamilyServiceTest {
     }
 
     @Test
-    void deleteAllChildrenOlderThan() {
+    void deleteAllChildrenOlderThan(){
+        int oldCount = familyController.getFamilyById(0).countFamily();
+        familyController.deleteAllChildrenOlderThan(20);
+        int newCount = familyController.getFamilyById(0).countFamily();
+        Assertions.assertTrue(newCount == oldCount - 1);
     }
 
     @Test

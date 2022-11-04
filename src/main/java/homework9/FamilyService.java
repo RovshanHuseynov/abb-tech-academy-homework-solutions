@@ -58,12 +58,12 @@ public class FamilyService {
             family.addChild(new Man(manNames[random.nextInt(12)],
                     family.getFather().getSurname(),
                     1990 + random.nextInt(20),
-                    (family.getFather().getIq() + family.getMother().getIq() / 2)));
+                    (family.getFather().getIq() + family.getMother().getIq()) / 2));
         } else if(childSex == 1){
             family.addChild(new Woman(womanNames[random.nextInt(12)],
                     family.getMother().getSurname(),
                     1990 + random.nextInt(20),
-                    (family.getFather().getIq() + family.getMother().getIq() / 2)));
+                    (family.getFather().getIq() + family.getMother().getIq()) / 2));
         }
 
         familyDao.saveFamily(family);

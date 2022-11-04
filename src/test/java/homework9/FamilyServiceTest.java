@@ -17,8 +17,8 @@ class FamilyServiceTest {
 
     @BeforeEach
     void setUp() {
-        father1 = new Human("Rovshan", "Huseynov", 1994);
-        mother1 = new Human("Ayten", "Huseynova", 1995);
+        father1 = new Human("Rovshan", "Huseynov", 1994, 70);
+        mother1 = new Human("Ayten", "Huseynova", 1995, 20);
         child1 = new Human("Eli", "Huseynov", 2000);
         child2 = new Human("Veli", "Huseynov", 2005);
         child3 = new Human("Zeli", "Huseynov", 2010);
@@ -77,10 +77,16 @@ class FamilyServiceTest {
 
     @Test
     void bornChild() {
+        int oldCount = familyController.getFamilyById(0).countFamily();
+        familyController.bornChild(family1);
+        familyController.bornChild(family1);
+        int newCount = familyController.getFamilyById(0).countFamily();
+        Assertions.assertTrue(newCount == oldCount + 2);
     }
 
     @Test
     void adoptChild() {
+
     }
 
     @Test

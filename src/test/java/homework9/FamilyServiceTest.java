@@ -72,7 +72,7 @@ class FamilyServiceTest {
 
     @Test
     void deleteFamilyByIndex() {
-        Assertions.assertEquals(false, familyController.deleteFamilyByIndex(3));
+        Assertions.assertFalse(familyController.deleteFamilyByIndex(3));
     }
 
     @Test
@@ -86,7 +86,10 @@ class FamilyServiceTest {
 
     @Test
     void adoptChild() {
-
+        int oldCount = familyController.getFamilyById(0).countFamily();
+        familyController.adoptChild(family1, child4);
+        int newCount = familyController.getFamilyById(0).countFamily();
+        Assertions.assertTrue(newCount == oldCount + 1);
     }
 
     @Test

@@ -1,4 +1,4 @@
-package homework10;
+package homework12;
 
 import java.util.*;
 
@@ -53,6 +53,22 @@ public class Family {
                 ", child=" + children +
                 ", pet=" + pets +
                 '}';
+    }
+
+    public String prettyFormat(){
+        StringBuilder childrenString = new StringBuilder();
+        String gender;
+        for(Human h : children){
+            if(h instanceof Man) gender = "boy:  ";
+            else gender = "girl: ";
+            childrenString.append("\t\t\t").append(gender).append(h).append("\n");
+        }
+
+        return "\nfamily: \n" +
+                "\tmother: " + mother + ",\n" +
+                "\tfather: " + father + ",\n" +
+                "\tchildren:\n" + childrenString +
+                "\tpets: " + pets + "\n";
     }
 
     @Override

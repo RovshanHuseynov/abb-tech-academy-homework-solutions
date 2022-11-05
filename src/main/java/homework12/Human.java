@@ -71,8 +71,7 @@ public class Human implements HumanCreator {
 
     @Override
     public String toString() {
-        return "Human{" +
-                "name='" + name + '\'' +
+        return "{name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", year=" + year +
                 ", iq=" + iq +

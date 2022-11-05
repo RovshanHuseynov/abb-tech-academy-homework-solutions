@@ -46,7 +46,7 @@ public class App12 {
         Pet pet1 = new Dog("Alabash", 1, 100,
                 new HashSet<String>(){{add("jump"); add("lick"); add("sleep");}});
         familyController.addPet(0, pet1);
-        //familyController.getPets(0).forEach(System.out::println);
+        // familyController.getPets(0).forEach(System.out::println);
         Pet pet2 = new DomesticCat("Luna");
         //System.out.println("pet2 :" + pet2);
         familyController.addPet(0, pet2);

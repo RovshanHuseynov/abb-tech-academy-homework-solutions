@@ -50,8 +50,8 @@ public abstract class Pet {
 
     @Override
     public String toString() {
-        return species.name() + "{" +
-                "nickname='" + nickname + '\'' +
+        return  "{species=" + species.name() +
+                ", nickname='" + nickname + '\'' +
                 ", age='" + age + '\'' +
                 ", trickLevel=" + trickLevel +
                 ", habits=" + habits.toString() +
